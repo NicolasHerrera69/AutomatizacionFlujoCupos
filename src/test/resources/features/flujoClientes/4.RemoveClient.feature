@@ -11,4 +11,4 @@ Feature: Eliminar Cliente Cupos Web
 
     Examples: 
       | userName | password | FilterIds |
-      | riesgos3 | riesgos1 |  51802316 |
+      | riesgos3 | riesgos1 |   2021002 |

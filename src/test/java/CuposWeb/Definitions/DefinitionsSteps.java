@@ -9,6 +9,8 @@ import CuposWeb.Pages.QuotaModificationPage;
 import CuposWeb.Pages.EditClientsPage;
 import CuposWeb.Pages.LoginPage;
 import CuposWeb.Pages.OperativaPage;
+import CuposWeb.Pages.QuotaAuthorizationPage;
+import CuposWeb.Pages.QuotaConsultationPage;
 import CuposWeb.Pages.RemoveClientsPage;
 import CuposWeb.Steps.Conexion;
 import cucumber.api.java.en.And;
@@ -27,6 +29,9 @@ public class DefinitionsSteps {
 	private EditClientsPage editClientsPage = new EditClientsPage(driver);
 	private QuotaManagementPage quotaManagementPage = new QuotaManagementPage(driver);
 	private CreationOfQuotasPage creationOfQuotasPage = new CreationOfQuotasPage(driver);
+	private QuotaModificationPage quotaModificationPage = new QuotaModificationPage(driver);
+	private QuotaAuthorizationPage quotaAuthorizationPage = new QuotaAuthorizationPage(driver);
+	private QuotaConsultationPage quotaConsultationPage = new QuotaConsultationPage(driver);
 
 	// AbrirNavegador
 	@Given("^Abrir el navegador$")
@@ -118,27 +123,72 @@ public class DefinitionsSteps {
 		this.quotaManagementPage.creation();
 
 	}
+
 	// Ingreso de datos para creacion de cupo Parte 1
-	@When("^Ingresamos el numero de documento (.*)$")
-	public void clientData(String numbDoc   ) {
+	@And("^Ingresamos el numero de documento (.*) ,la fecha del alta (.*) , fecha de vencimiento (.*)$")
+	public void clientData(String numbDoc, String dateOn, String dateOff) {
 		this.creationOfQuotasPage = new CreationOfQuotasPage(driver);
-		this.creationOfQuotasPage.clientData(numbDoc);
+		this.creationOfQuotasPage.clientData(numbDoc, dateOn, dateOff);
 	}
-	
-	//@And("^Ingresamos el valor sublime autorizado a la modalidad escogida (.*)$")
-	//public void asignationList(String mod ) {
-		//this.creationOfQuotasPage = new CreationOfQuotasPage(driver);
-		//this.creationOfQuotasPage.asignationList(mod);
-	//}
-	
-	// IngresoAFlujoManejo de cupos
+
+	// Ingreso de datos para creacion de cupo Parte 1
+	@And("^Ingresamos el valor limite (.*) , y valor prueba (.*)$")
+	public void clientData(String limit,String prueba) throws InterruptedException {
+		this.creationOfQuotasPage = new CreationOfQuotasPage(driver);
+		this.creationOfQuotasPage.clientDataTwo(limit, prueba);
+	}
+
+	// @And("^Ingresamos el valor sublime autorizado a la modalidad escogida (.*)$")
+	// public void asignationList(String mod ) {
+	// this.creationOfQuotasPage = new CreationOfQuotasPage(driver);
+	// this.creationOfQuotasPage.asignationList(mod);
+	// }
+
+	// Ingreso a modificacion de cupos
 	@And("^Ingresar al flujo de Manejo de cupos - Modificacion de cupos$")
 	public void quotaModification() {
 		this.quotaManagementPage = new QuotaManagementPage(driver);
 		this.quotaManagementPage.quotaManagement();
 		this.quotaManagementPage.modification();
 
+	}
+	
+	//Datos a modificar
+		@And("^Ingresamos numero de documento (.*) ingresamos el nuevo limite total (.*)$")
+		public void Master(String id, String date) {
+			this.quotaModificationPage = new QuotaModificationPage(driver);
+			this.quotaModificationPage.Master(id, date);
 		}
-		
-		
+
+	// Ingreso al flujo autorizar Cupos
+	@And("^Ingresar al flujo de Autoriza cupos$")
+	public void quotaAuthorization() {
+		this.quotaManagementPage = new QuotaManagementPage(driver);
+		this.quotaManagementPage.quotaManagement();
+		this.quotaManagementPage.authorization();
+	}
+
+	// Busqueda de cupo por autorizar
+	@And("^Ingresamos el documento con el cupo a autorizar (.*) , fecha de vencimiento (.*) , y valor total (.*)$")
+	public void pendingAuthorizations(String doc, String dateOff, String limit) throws InterruptedException {
+		this.quotaAuthorizationPage = new QuotaAuthorizationPage(driver);
+		this.quotaAuthorizationPage.pendingAuthorizations(doc, dateOff, limit);
+
+	}
+	
+
+	// Ingreso al flujo consulta de cupos
+	@And("^Ingresar al flujo de consulta de cupos$")
+	public void query() {
+		this.quotaManagementPage = new QuotaManagementPage(driver);
+		this.quotaManagementPage.quotaManagement();
+		this.quotaManagementPage.query();
+	}
+
+	// Ingreso de documento a consultar
+	@And("^Ingresamos el numero de identificacion  (.*)$" )
+	public void queryId(String id) {
+		this.quotaConsultationPage = new QuotaConsultationPage(driver);
+		this.quotaConsultationPage.queryId(id);
+	}
 }

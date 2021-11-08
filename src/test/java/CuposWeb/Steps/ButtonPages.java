@@ -57,27 +57,32 @@ public class ButtonPages {
 
 	@FindBy(how = How.ID, using = "ClientesCreateForm:guardar")
 	private WebElement btnGuardar;
-	
+
 	@FindBy(how = How.ID, using = "ClientesCreateRelacionForm:j_idt446")
 	private WebElement btnDeAcuerdo;
-	
+
 	@FindBy(how = How.ID, using = "CuposListForm:moneda_label")
 	private WebElement btnCoin;
-	
+
 	@FindBy(how = How.ID, using = "CuposListForm:estado")
 	private WebElement btnState;
 
-	
+	@FindBy(how = How.ID, using = "CuposListForm:j_idt50")
+	private WebElement btnSave;
+
+	@FindBy(how = How.ID, using = "CuposListForm:datalist:0:createButton")
+	private WebElement btnInfo;
+
 	public ButtonPages(WebDriver driver) {
 		this.driver = driver;
 
 		PageFactory.initElements(driver, this);
 	}
-	
-	
+
 	public void btnState() {
 		btnState.click();
 	}
+
 	public void btnLogin() {
 		btnLogin.click();
 	}
@@ -181,36 +186,60 @@ public class ButtonPages {
 		WebElement btnRolJ = driver.findElement(By.xpath("//*[@id=\"ClientesCreateRelacionForm:jerarquico\"]/div[3]"));
 		btnRolJ.click();
 	}
-	
+
 	public void btnDeAcuerdo() {
 
 		btnDeAcuerdo.click();
 	}
-	
+
 	public void btnManejoCupos() {
 
 		WebElement btnMC = driver.findElement(By.xpath("//*[@id=\"menu\"]/div[2]/h3/a"));
 		btnMC.click();
 	}
 
-	
 	public void btnCreacionCupos() {
 		WebElement btnCreationQu = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/ul/li[1]/a/span"));
 		btnCreationQu.click();
 	}
-	
+
 	public void btnCoin() {
 		btnCoin.click();
 	}
-	
-	
-	
+
+	public void btnSave() {
+		btnSave.click();
+	}
+
 	public void btnModificationQuota() {
 		WebElement btnModificationQ = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/ul/li[2]/a"));
 		btnModificationQ.click();
 	}
+
+	public void btnAuthorize() {
+
+		WebElement btnAu = driver.findElement(By.xpath("//*[@id=\"menu\"]/div[4]/h3/a"));
+		btnAu.click();
+	}
+
+	public void btnAuthorizeTwo() {
+
+		WebElement btnAuT = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[4]/div/ul/li/a"));
+		btnAuT.click();
+	}
+	public void btnInfo() {
+
+	}
 	
+	public void btnPending() {
+
+		WebElement btnPending = driver.findElement(By.xpath("//*[@id=\"ClientesListForm:datalist_data\"]/tr/td[4]"));
+		btnPending.click();
+	}
 	
-	
-	
+	public void btnQuery() {
+
+		WebElement btnQuery = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div/ul/li[3]/a"));
+		btnQuery.click();
+	}
 }

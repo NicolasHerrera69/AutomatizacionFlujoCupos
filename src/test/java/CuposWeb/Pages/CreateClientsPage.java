@@ -94,7 +94,7 @@ public class CreateClientsPage {
 		questions.tiempoSegundos(1);
 		Ventas.sendKeys(ventas);
 		buttonPages.btnGuardar();
-		questions.tiempoSegundos(1);
+		questions.tiempoSegundos(2);
 
 	}
 

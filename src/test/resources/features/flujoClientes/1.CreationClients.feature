@@ -13,5 +13,5 @@ Feature: CreacionClientesCuposWeb
     And Se selecciona el rol jerarquico <roles> , Se agrega el porcentaje de participacion <porcentaje> y numero de empleados <numeroE>
 
     Examples: 
-      | userName | password | documents         | documentNum | digit | name          | date       | groups     | banks          | SubSeg                    | Gestor              | rating | activo           | ventas      | roles     | porcentaje | numeroE |
-      | riesgos3 | riesgos1 | CEDULA CIUDADANIA |   518023133 |     0 | Julian Suarez | 04/10/2021 | QA PRUEBAS | Banca Personal | 3 - Servicios financieros | Juan Carlos Moscote |   7.00 | 1,000,000,000.00 | 500,000,000 | No aplica |          0 |       1 |
+      | userName | password | documents         | documentNum | digit | name        | date       | groups     | banks          | SubSeg                    | Gestor              | rating | activo           | ventas      | roles     | porcentaje | numeroE |
+      | riesgos3 | riesgos1 | CEDULA CIUDADANIA |     2021002 |     0 | Juan pinzon | 04/11/2021 | QA PRUEBAS | Banca Personal | 3 - Servicios financieros | Juan Carlos Moscote |   7.00 | 1,000,000,000.00 | 500,000,000 | No aplica |          0 |       1 |

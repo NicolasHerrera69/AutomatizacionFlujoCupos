@@ -11,4 +11,4 @@ Feature: Consulta clientes cupos web
 
     Examples: 
       | userName | password | FilterDoc |
-      | riesgos3 | riesgos1 |  51802316 |
+      | riesgos3 | riesgos1 |   2021002 |

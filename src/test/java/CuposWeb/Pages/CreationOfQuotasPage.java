@@ -26,11 +26,19 @@ public class CreationOfQuotasPage {
 	@FindBy(how = How.ID, using = "CuposListForm:fechavencimiento_input")
 	private WebElement btnDateOff;
 
-	@FindBy(how = How.ID, using = "CuposListForm:limitetotal_input")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"CuposListForm:limitetotal_input\"]")
 	private WebElement btnLimit;
 
 	@FindBy(how = How.ID, using = "CuposListForm:datalist:0:j_idt75_input")
 	private WebElement btnModalidad;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"CuposListForm:datalist:0:j_idt75_input\"]")
+	private WebElement btnValConf;
+	
+	@FindBy(how = How.XPATH, using = "//*[@id=\"CuposListForm:datalist:0:j_idt75_input\"]")
+	private WebElement btnprueba;
+	
+	
 
 	public CreationOfQuotasPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -40,9 +48,40 @@ public class CreationOfQuotasPage {
 
 	}
 
-	public void clientData(String numbDoc) {
+	public void clientData(String numbDoc, String dateOn, String dateOff) {
 		btnNumbDoc.sendKeys(numbDoc);
+		questions.tiempoSegundos(1);
 		btnNumbDoc.sendKeys(Keys.ENTER);
+		questions.tiempoSegundos(1);
+		btnDateOn.sendKeys(dateOn);
+		btnDateOff.sendKeys(dateOff);
+
+
+	}
+
+	public void clientDataTwo(String limit, String prueba) throws InterruptedException {
+		Thread.sleep(500);
+		btnLimit.clear();
+		Thread.sleep(500);
+		btnLimit.sendKeys(limit);
+		Thread.sleep(500);
+		btnLimit.sendKeys(Keys.TAB);
+		btnLimit.sendKeys(Keys.TAB);
+		btnLimit.sendKeys(Keys.TAB);
+		btnprueba.clear();
+		btnprueba.sendKeys(prueba);
+
+		
+		
+
+		
+		//listPages.coinList(coinList);
+
+	//	btnValConf.clear();
+	//	btnValConf.sendKeys(limit);
+	//	buttonPages.btnInfo();
+		
+		
 
 	}
 

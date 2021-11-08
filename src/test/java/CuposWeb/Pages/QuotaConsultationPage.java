@@ -11,40 +11,31 @@ import CuposWeb.Steps.ButtonPages;
 import CuposWeb.Steps.ListPages;
 import CuposWeb.Steps.Questions;
 
-public class QuotaModificationPage {
+public class QuotaConsultationPage {
 
 	private ButtonPages buttonPages;
 	private Questions questions;
-	private ListPages listPages;
-
+	private ListPages listPages;	
+	
 	@FindBy(how = How.ID, using = "CuposListForm:nit_input")
 	private WebElement btnNumbId;
-
-	@FindBy(how = How.ID, using = "CuposListForm:datalist:4:j_idt76_input")
-	private WebElement btnLimit;
 	
-	@FindBy(how = How.ID, using = "CuposListForm:fechavencimiento_input")
-	private WebElement btnDateOff;
-
-	public QuotaModificationPage(WebDriver driver) {
+	public QuotaConsultationPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.buttonPages = new ButtonPages(driver);
 		this.questions = new Questions(driver);
 		this.listPages = new ListPages(driver);
 
 	}
-
-	public void Master(String id, String date) {
-
+	
+	public void queryId(String id) {
+		
 		btnNumbId.sendKeys(id);
 		questions.tiempoSegundos(1);
-		btnNumbId.sendKeys(Keys.ENTER);
-		questions.tiempoSegundos(2);
-		questions.tiempoSegundos(1);
-		btnDateOff.clear();
-		questions.tiempoSegundos(1);
-;
-		btnDateOff.sendKeys(date);
-	}
 
+		btnNumbId.sendKeys(Keys.ENTER);
+		
+	}
+	
+	
 }

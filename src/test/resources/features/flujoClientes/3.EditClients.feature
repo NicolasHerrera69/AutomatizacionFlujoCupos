@@ -10,5 +10,5 @@ Feature: Editar clientes cupos web
     When Ingrese el numero de identificacion a editar <FilterDoc> ,click en el boton editar, agregamos el nuevo nombre <NewName>, el nuevo rating <rating> y ventas <ventas>
 
     Examples: 
-      | userName | password | FilterDoc | NewName                 | rating | ventas      |
-      | riesgos3 | riesgos1 |  51802316 | Empresas Publica cucuta |   1.00 | 500.000.000 |
+      | userName | password | FilterDoc  | NewName                 | rating | ventas      |
+      | riesgos3 | riesgos1 | 1000587965 | Empresas Publica cucuta |   1.00 | 500.000.000 |

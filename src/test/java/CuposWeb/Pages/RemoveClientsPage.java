@@ -38,7 +38,7 @@ public class RemoveClientsPage {
 		questions.tiempoSegundos(1);
 		questions.screenShot();
 		buttonPages.btnConfirmRemove();
-		questions.tiempoSegundos(2);
+		questions.tiempoSegundos(3);
 		questions.screenShot();
 		
 		
